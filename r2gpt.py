@@ -17,7 +17,7 @@ def createR2Pipe():
 
 def askGPT(func: str) -> str:
     resp = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
+        model="o4-mini",
         messages=[
             {"role": "user", "content": "How does this function work"},
             {"role": "user", "content": func}
