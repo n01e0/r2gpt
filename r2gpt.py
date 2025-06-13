@@ -16,7 +16,7 @@ def createR2Pipe():
 
 
 def askGPT(func: str) -> str:
-    resp = openai.ChatCompletion.create(
+    completion = openai.chat.completions.create(
         model="o4-mini",
         messages=[
             {"role": "user", "content": "How does this function work"},
@@ -24,8 +24,7 @@ def askGPT(func: str) -> str:
         ]
     )
 
-    return resp['choices'][0]['message']['content']
-
+    return completion.choices[0].message.content 
 
 def decompile(func: str, pipe) -> str:
     return pipe.cmd(f'pdg @{func}')
